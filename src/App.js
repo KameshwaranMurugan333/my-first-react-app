@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import MyClassComponent from "./components/MyClassComponent";
+import { MyFunctionalComponent } from "./components/MyFunctionalComponent";
 
-function App() {
+export function App() {
+
+  const [state, setState] = React.useState(1);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>App State: {state}</h1>
+      <button onClick={() => setState(state + 1)}>Increment</button>
+      
+      <MyClassComponent myProp="1" />
+      <MyFunctionalComponent myProp="2" />
+
     </div>
   );
 }
 
-export default App;
+
+
