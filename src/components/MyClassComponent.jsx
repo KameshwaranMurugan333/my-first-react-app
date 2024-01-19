@@ -6,6 +6,40 @@ class MyClassComponent extends Component {
 
         // State initialization
         this.state = { value: 0 }
+        console.log("I am in constructor");
+    }
+
+    static getDerivedStateFromProps(){
+        console.log("I am in getDerivedStateFromProps");
+    }
+
+    componentDidMount(){
+        console.log("I am from componentDidMount")
+    }
+
+    shouldComponentUpdate(prevProps, prevState){
+        console.log('prevState:', prevState)
+        console.log('prevProps:', prevProps)
+        console.log("I am in shouldComponentUpdate");
+        return true;
+    }
+
+    // Updating
+    getSnapshotBeforeUpdate(prevProps, prevState, state, props) {
+        console.log("Executing getSnapshotBeforeUpdate");
+        return { favoritecolor: "black", name: "Kamesh" };
+    }
+
+    // Updating
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("Executing ComponentDidUpdate");
+        console.log('snapshot:', snapshot)
+        console.log('prevState:', prevState)
+        console.log('prevProps:', prevProps)
+    }
+
+    componentWillUnmount(){
+        console.log("I am in componentWillUnmount")
     }
 
     increment = () => {
